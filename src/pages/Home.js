@@ -1,4 +1,4 @@
-import fetchTrending from "components/API"
+import {fetchTrending} from "components/API"
 import TrendingList from "components/trendingList"
 import { useEffect } from "react"
 import { useState } from "react"

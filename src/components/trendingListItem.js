@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 const TrendingListItem = ({trendingItem})=>{
- 
+const movieId = trendingItem.id
 return(
     <li>
-   <Link to={`${trendingItem}`}>{trendingItem.name}{trendingItem.title}</Link>
+   <Link to={`movies/:${movieId}`}>{trendingItem.name}{trendingItem.title}</Link>
     </li>
 )
 }
