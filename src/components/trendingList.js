@@ -1,10 +1,10 @@
 
-import { nanoid } from 'nanoid';
+
 import TrendingListItem from './trendingListItem';
 
 const TrendingList = ({ trendingMovies }) => {
   const TrendingListItems = trendingMovies.map(trendingItem => (
-    <TrendingListItem trendingItem={trendingItem} key={nanoid()}/>
+    <TrendingListItem trendingItem={trendingItem} key={trendingItem.id}/>
   ));
   return <ul>
  {TrendingListItems}

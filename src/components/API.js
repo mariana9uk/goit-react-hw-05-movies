@@ -10,8 +10,8 @@ const API_KEY = "1e066df6273043e937131fcc939211ac"
 console.log(responce.data)
     return responce.data
 }
-export const fetchDetailsById=async(movieId)=>{
-const responceDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+export const fetchDetailsById=async(movie_Id)=>{
+const responceDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movie_Id}?api_key=${API_KEY}&language=en-US`);
 console.log( responceDetails.data)
     return  responceDetails.data
 }

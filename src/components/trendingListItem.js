@@ -3,7 +3,7 @@ const TrendingListItem = ({trendingItem})=>{
 const movieId = trendingItem.id
 return(
     <li>
-   <Link to={`movies/:${movieId}`}>{trendingItem.name}{trendingItem.title}</Link>
+   <Link to={`movies/${movieId}`}>{trendingItem.name}{trendingItem.title}</Link>
     </li>
 )
 }
