@@ -16,6 +16,13 @@ console.log( responceDetails.data)
     return  responceDetails.data
 }
 
+export const fetchCast = async(movie_Id)=>{
+    const responceCastDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movie_Id}/credits?api_key=${API_KEY}&language=en-US`);
+console.log( responceCastDetails.data)
+    return  responceCastDetails.data
+}
+
+
 //  const fetchMoviesByQuery = async()=>{
 //     const responce = await axios.get();
 

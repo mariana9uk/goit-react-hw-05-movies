@@ -1,6 +1,14 @@
-const GenresList=({genresArray}) =>{
-    const GenresListItems = genresArray.map(genre=>(<li key={genre.id}>{genre.name}</li>))
-return <ul>
-    {GenresListItems}
-</ul>}
-export default GenresList
+// import GenresListItem from "./genresListItem"
+
+
+// const GenresList=({genresArray})=>{
+//  const GenresListItems= genresArray.map(genre=>( 
+//  <GenresListItem genre={genre} key={genre.id}/>))
+
+//      return (
+//        <ul>
+//    {GenresListItems}
+//      </ul>)}
+//        console.log(GenresList)
+
+    //    export default GenresList
