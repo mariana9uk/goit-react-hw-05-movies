@@ -3,7 +3,6 @@ import axios from "axios"
 const API_KEY = "1e066df6273043e937131fcc939211ac"
  export const fetchTrending = async()=>{
     const responce = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US`);
-console.log(responce.data)
     return responce.data
 }
 export const fetchDetailsById=async(movie_Id)=>{
@@ -19,12 +18,10 @@ export const fetchCast = async(movie_Id)=>{
 }
 export const fetchReviews = async(movie_Id)=>{
     const responceReviewsDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movie_Id}/reviews?api_key=${API_KEY}&language=en-US`);
-console.log( responceReviewsDetails.data)
     return  responceReviewsDetails.data
 }
 
 export const fetchMoviesByQuery = async(query)=>{
-    const responceMovies = await axios.get(`https://api.themoviedb.org/3/search/movie/?query=${query}api_key=${API_KEY}&language=en-US`);
-console.log( responceMovies.data)
+    const responceMovies = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US`)
     return  responceMovies.data
 }
