@@ -31,7 +31,6 @@ const Movies = () => {
     e.target.reset();
   };
   const searchedMoviesArr = movies.results;
-  console.log(searchedMoviesArr)
   return (
     <div>
       <form onSubmit={handleSubmit}>
