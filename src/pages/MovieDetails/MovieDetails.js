@@ -3,6 +3,7 @@ import Cast from 'components/Cast';
 import Reviews from 'components/reviews';
 import { useEffect, useRef, useState,  Suspense} from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { DetailsContainer, StyledMovieDetailsContainer, StyledAdditionalInfo } from './MovieDetailsStyled';
 
 
 const MovieDetails = () => {
@@ -39,11 +40,14 @@ const MovieDetails = () => {
   });
   return (
     <div>
+      <StyledMovieDetailsContainer>
       <Link to={locationRef.current} >
         Go Back
       </Link>
       <div>
+      <DetailsContainer>
         <img src={posterUrl} alt={details.original_title}></img>
+      <div>
         <h1>
           {details.title} ({year})
         </h1>
@@ -52,8 +56,11 @@ const MovieDetails = () => {
         <article>{details.overview}</article>
         <h3>Genres</h3>
         <ul>{genresListItems}</ul>
+        </div>
+        </DetailsContainer>
       </div>
-      <div>
+      </StyledMovieDetailsContainer>
+      <StyledAdditionalInfo>
         <p>Additional information</p>
         <ul>
           <li>
@@ -70,7 +77,7 @@ const MovieDetails = () => {
         <Suspense fallback={<div>Loading...</div>}>
     <Outlet />
       </Suspense>
-      </div>
+      </StyledAdditionalInfo>
     </div>
   );
 };

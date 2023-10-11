@@ -3,6 +3,7 @@ import SearchedMoviesList from 'components/searchedMoviesList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { StyledForm } from './StyledMovies';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,13 +34,13 @@ const Movies = () => {
   };
   const searchedMoviesArr = movies.results;
   return (
-    <div>
+    <StyledForm>
       <form onSubmit={handleSubmit}>
         <input type="text" name="query"></input>
         <button type="submit">Search</button>
       </form>
       <SearchedMoviesList searchedMoviesArr={searchedMoviesArr} />
-    </div>
+    </StyledForm>
   );
 };
 export default Movies;

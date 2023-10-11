@@ -5,7 +5,7 @@ import { GlobalStyle } from "globalStyles";
  
 const Home = lazy(()=>import('../pages/Home'))
 const Movies = lazy(()=>import('../pages/Movies'))
-const MovieDetails = lazy(()=>import('../pages/MovieDetails'))
+const MovieDetails = lazy(()=>import('../pages/MovieDetails/MovieDetails'))
 const Reviews = lazy(()=>import('../components/reviews'))
 const Cast = lazy(()=>import('../components/Cast'))
 
