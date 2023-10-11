@@ -1,21 +1,21 @@
 import { fetchDetailsById } from 'components/API';
 import Cast from 'components/Cast';
 import Reviews from 'components/reviews';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import Home from './Home';
+import { useEffect, useRef, useState,  Suspense} from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+
 
 const MovieDetails = () => {
+  const location = useLocation()
+  const locationRef=useRef(location.state?.from ??'/movies')
   const { movieId } = useParams();
-  console.log(movieId);
   const [details, setDetails] = useState({});
   useEffect(() => {
     async function getDetails() {
       try {
         const fetchedDetails = await fetchDetailsById(movieId);
         setDetails(fetchedDetails);
-        console.log(fetchedDetails);
-      } catch (error) {
+          } catch (error) {
         console.log(error);
       }
     }
@@ -39,7 +39,7 @@ const MovieDetails = () => {
   });
   return (
     <div>
-      <Link to={`/`} element={<Home />}>
+      <Link to={locationRef.current} >
         Go Back
       </Link>
       <div>
@@ -67,7 +67,9 @@ const MovieDetails = () => {
             </Link>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+    <Outlet />
+      </Suspense>
       </div>
     </div>
   );

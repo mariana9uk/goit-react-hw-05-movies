@@ -1,15 +1,17 @@
-import Home from "pages/Home";
-import MovieDetails from "pages/MovieDetails";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./Layout";
-import Movies from "pages/Movies";
-import Cast from "./Cast";
-import Reviews from "./reviews";
+import Layout from "./Layout/Layout";
+import { lazy } from "react";
+import { GlobalStyle } from "globalStyles";
+ 
+const Home = lazy(()=>import('../pages/Home'))
+const Movies = lazy(()=>import('../pages/Movies'))
+const MovieDetails = lazy(()=>import('../pages/MovieDetails'))
+const Reviews = lazy(()=>import('../components/reviews'))
+const Cast = lazy(()=>import('../components/Cast'))
 
 export const App = () => {
   return (
     <div >
-
 <Routes>
   <Route path="/" element={<Layout/>}>
   <Route index element={<Home/>}/>
@@ -21,6 +23,7 @@ export const App = () => {
   <Route path="*" element={<Home />} />
   </Route>
 </Routes>
+<GlobalStyle/>
     </div>
   );
 };

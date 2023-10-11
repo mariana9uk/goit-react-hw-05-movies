@@ -3,6 +3,7 @@ import SearchedMoviesList from 'components/searchedMoviesList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';

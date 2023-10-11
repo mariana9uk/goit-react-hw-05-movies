@@ -10,8 +10,7 @@ const Cast = () => {
       try {
         const fetchedCast = await fetchCast(movieId);
         setCast(fetchedCast);
-        console.log(fetchedCast);
-      } catch (error) {
+          } catch (error) {
         console.log(error);
       }
     }
