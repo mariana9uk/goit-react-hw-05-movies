@@ -15,7 +15,7 @@ const Cast = () => {
       }
     }
     getCastDetails();
-  }, []);
+  }, [movieId]);
   if (!cast || !cast.cast) {
     return null;
   }

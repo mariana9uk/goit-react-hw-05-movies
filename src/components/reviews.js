@@ -17,7 +17,7 @@ const Reviews = () => {
       }
     }
     getReviewsDetails();
-  }, []);
+  }, [movieId]);
   if (!reviews || !reviews.results) {
     return null;
   }
