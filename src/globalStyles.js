@@ -16,7 +16,7 @@ body {
 ul {
     list-style: none;
     margin:0;
-    padding:0;
+   padding-left: 20px;
 }
 a {
     text-decoration: none;
@@ -24,4 +24,7 @@ a {
 a.active{color: blue;}
 p{
     margin:0 auto;
+}
+h1{
+  padding-left: 20px;
 }`;

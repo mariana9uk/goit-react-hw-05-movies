@@ -1,9 +1,9 @@
 import MovieDetails from 'pages/MovieDetails/MovieDetails';
 
 import { Link, useLocation } from 'react-router-dom';
- const SearchedMoviesList = ({ searchedMoviesArr }) => {
+const SearchedMoviesList = ({ searchedMoviesArr }) => {
   const location = useLocation();
- 
+
   if (!searchedMoviesArr) {
     return;
   }

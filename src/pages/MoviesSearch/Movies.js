@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { StyledForm } from './StyledMovies';
+import { toast } from 'react-toastify';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,16 +16,24 @@ const Movies = () => {
     async function getMovies() {
       try {
         const fetchedMovies = await fetchMoviesByQuery(query);
+        if (fetchedMovies && fetchedMovies.total_results === 0) {
+          toast.warn('Sorry, we dont have this movie', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000,
+          });
+        }
         setMovies(fetchedMovies);
-        console.log(fetchedMovies);
       } catch (error) {
-        console.log(error);
+        toast.error('Error', {
+          position: toast.POSITION.TOP_LEFT,
+          autoClose: 2000,
+        });
       }
     }
     getMovies();
   }, [query]);
-  if (!movies??!movies.results) {
-    return
+  if (!movies) {
+    return null;
   }
 
   const handleSubmit = e => {
@@ -34,13 +43,15 @@ const Movies = () => {
   };
   const searchedMoviesArr = movies.results;
   return (
-    <StyledForm>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query"></input>
-        <button type="submit">Search</button>
-      </form>
-      <SearchedMoviesList searchedMoviesArr={searchedMoviesArr} />
-    </StyledForm>
+    <div>
+      <StyledForm>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="query"></input>
+          <button type="submit">Search</button>
+        </form>
+        <SearchedMoviesList searchedMoviesArr={searchedMoviesArr} />
+      </StyledForm>
+    </div>
   );
 };
 export default Movies;

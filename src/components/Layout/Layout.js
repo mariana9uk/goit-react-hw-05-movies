@@ -10,7 +10,7 @@ const Layout = () => {
         <NavLink to="/movies">Movies</NavLink>
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
-    <Outlet />
+        <Outlet />
       </Suspense>
     </main>
   );
